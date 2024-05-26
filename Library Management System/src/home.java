@@ -41,6 +41,7 @@ public class home extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -102,7 +103,6 @@ public class home extends javax.swing.JFrame {
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 20, 200, -1));
 
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Legion\\OneDrive\\Documents\\SEMESTER 4\\PBO\\ICON\\occupation.png")); // NOI18N
         jButton7.setText("ISSUE BOOK");
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 200, -1));
 
@@ -117,7 +117,6 @@ public class home extends javax.swing.JFrame {
         getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, -1, -1));
 
         jButton9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Legion\\OneDrive\\Documents\\SEMESTER 4\\PBO\\ICON\\delete.png")); // NOI18N
         jButton9.setText("DEL BOOK");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +126,6 @@ public class home extends javax.swing.JFrame {
         getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 110, 200, 70));
 
         jButton10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Legion\\OneDrive\\Documents\\SEMESTER 4\\PBO\\ICON\\delete-user.png")); // NOI18N
         jButton10.setText("DEL ANGGOTA");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +134,16 @@ public class home extends javax.swing.JFrame {
         });
         getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 110, 200, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Legion\\OneDrive\\Documents\\SEMESTER 4\\PBO\\ICON\\background 4.jpg")); // NOI18N
+        jButton11.setText("Pinjam Buku");
+        jButton11.setToolTipText("");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 200, 70));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background 4.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -189,6 +196,11 @@ public class home extends javax.swing.JFrame {
         new DeleteSiswa().setVisible(true);
     }//GEN-LAST:event_jButton10ActionPerformed
 
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        new Pinjam().setVisible(true);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -227,6 +239,7 @@ public class home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
