@@ -137,14 +137,14 @@ public class Pengembalian extends javax.swing.JFrame {
             int denda = Integer.parseInt(txt_denda.getText().trim());
             
             // Cek apakah buku sudah dikembalikan sebelumnya
-        String checkPeminjamQuery = "SELECT TANGGAL_PENGEMBALIAN FROM peminjam WHERE ID_ANGGOTA = ? AND ID_BUKU = ?";
+        String checkPeminjamQuery = "SELECT TGL_KEMBALI_RILL FROM peminjam WHERE ID_ANGGOTA = ? AND ID_BUKU = ?";
         PreparedStatement pstmtCheckPeminjam = conn.prepareStatement(checkPeminjamQuery);
         pstmtCheckPeminjam.setString(1, idAnggota);
         pstmtCheckPeminjam.setString(2, idBuku);
         ResultSet rsCheckPeminjam = pstmtCheckPeminjam.executeQuery();
 
         if (rsCheckPeminjam.next()) {
-            String tanggalPengembalian = rsCheckPeminjam.getString("TANGGAL_PENGEMBALIAN");
+            String tanggalPengembalian = rsCheckPeminjam.getString("TGL_KEMBALI_RILL");
             if (tanggalPengembalian != null && !tanggalPengembalian.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Buku dengan ID " + idBuku + " telah dikembalikan sebelumnya pada tanggal " + tanggalPengembalian, "Info", JOptionPane.INFORMATION_MESSAGE);
                 return;
@@ -153,7 +153,7 @@ public class Pengembalian extends javax.swing.JFrame {
         
 
            // Update TANGGAL_PENGEMBALIAN dan DENDA di tabel peminjam
-            String updatePeminjamQuery = "UPDATE peminjam SET TANGGAL_PENGEMBALIAN = ?, DENDA = ? WHERE ID_ANGGOTA = ? AND ID_BUKU = ?";
+            String updatePeminjamQuery = "UPDATE peminjam SET TGL_KEMBALI_RILL = ?, DENDA = ? WHERE ID_ANGGOTA = ? AND ID_BUKU = ?";
             PreparedStatement pstmtPeminjam = conn.prepareStatement(updatePeminjamQuery);
             pstmtPeminjam.setString(1, tglPengembalianStr);
             pstmtPeminjam.setInt(2, denda);
@@ -222,6 +222,8 @@ public class Pengembalian extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(325, 125));
+        setUndecorated(true);
 
         txt_idAnggota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -380,8 +382,9 @@ public class Pengembalian extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        setVisible(false);
-        new home().setVisible(true);       
+        home obj = new home();
+        obj.setVisible(true);
+        dispose();      
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btn_kembalikanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_kembalikanActionPerformed
